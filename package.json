@@ -7,16 +7,20 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^6",
+    "@sap/xssec": "^3",
     "express": "^4",
-    "hdb": "^0.19.0"
+    "hdb": "^0.19.0",
+    "passport": "^0"
   },
   "devDependencies": {
     "@sap/eslint-plugin-cds": "^2.6.3",
+    "@sap/ux-specification": "^1.108.7",
     "eslint": "^8.43.0",
     "sqlite3": "^5"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "deploy": "cds deploy --to hana:MyHANAAPP-dev"
   },
   "cds": {
     "build": {
@@ -31,7 +35,11 @@
       ]
     },
     "requires": {
-      "db": "hana-cloud"
+      "db": "hana-cloud",
+      "auth": "xsuaa"
     }
-  }
+  },
+  "sapux": [
+    "app/interaction_items"
+  ]
 }
