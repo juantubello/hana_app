@@ -5,8 +5,10 @@ service CatalogService {
     @requires: 'authenticated-user'
     entity Interactions_Header as projection on interactions.Interactions_Header;
 
-    //@requires: 'Admin'
+    @requires: 'Admin'
     @restrict: [{grant: 'READ', where: 'LANGU = ''DE'''}]
     entity Interactions_Items  as projection on interactions.Interactions_Items;
+
+    entity test as projection on interactions.test
 
 }
